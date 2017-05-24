@@ -25,20 +25,15 @@ namespace Remora_azure.Shared
 
 	class ListViewPage1ViewModel : INotifyPropertyChanged
     {
-		private MobileServiceClient _client = new MobileServiceClient("http://mobileapp31417.azurewebsites.net");
+		private MobileServiceClient _client = new MobileServiceClient("http://localhost:59991/");
 		public ObservableCollection<TodoItem> Items { get; }
-        public ObservableCollection<Grouping<string, TodoItem>> ItemsGrouped { get; }
+        public ObservableCollection<Grouping<string, TodoItem>> ItemsGrouped { get; private set; }
 
         public ListViewPage1ViewModel()
         {
 			Items = new ObservableCollection<TodoItem>();
 			
-            var sorted = from item in Items
-                         orderby item.Text
-                         group item by item.Text[0].ToString() into itemGroup
-                         select new Grouping<string, TodoItem>(itemGroup.Key, itemGroup);
-
-            ItemsGrouped = new ObservableCollection<Grouping<string, TodoItem>>(sorted);
+            
 
             RefreshDataCommand = new Command(
                 async () => await RefreshData());
@@ -54,6 +49,12 @@ namespace Remora_azure.Shared
 			{
 				Items.Add(item);
 			}
+			var sorted = from item in Items
+						 orderby item.Text
+						 group item by item.Text[0].ToString() into itemGroup
+						 select new Grouping<string, TodoItem>(itemGroup.Key, itemGroup);
+
+			ItemsGrouped = new ObservableCollection<Grouping<string, TodoItem>>(sorted);
 
 			IsBusy = false;
         }

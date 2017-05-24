@@ -30,7 +30,7 @@
     <ListView.ItemTemplate>
       <DataTemplate>
         <TextCell Text="{Binding Text}"
-                  Detail="{Binding Detail}"/>
+						  Detail="{Binding Version}"/>
       </DataTemplate>
     </ListView.ItemTemplate>
     
