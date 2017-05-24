@@ -23,7 +23,7 @@ namespace Remora.Forms.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init ();
-			LoadApplication (new Remora.Forms.App ());
+			LoadApplication (new Remora_azure.Shared.App ());
 
 			return base.FinishedLaunching (app, options);
 		}

@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remora.AzureService", "Remora_azureService\Remora.AzureService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Remora-azure.Shared", "Remora-azure.Shared\Remora-azure.Shared.csproj", "{6D427843-E7E6-4803-B77B-09D1396D5225}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remora.App", "App5\Remora.App.csproj", "{74411BFA-B19C-4275-9E98-EBC17CFB6585}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Remora.Forms", "Remora.Forms\Remora.Forms\Remora.Forms.shproj", "{F8183DDA-1013-4895-B2A1-ACE78379E6A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remora.Forms.Android", "Remora.Forms\Remora.Forms.Android\Remora.Forms.Android.csproj", "{7C9E6944-AB66-4799-9FAF-70637BA62B6A}"
 EndProject
@@ -18,11 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Remora.Forms.UWP", "Remora.Forms\Remora.Forms.UWP\Remora.Forms.UWP.csproj", "{59023306-7DBF-4F7B-9AA8-FA96201F2533}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Remora.Forms\Remora.Forms\Remora.Forms.projitems*{7c9e6944-ab66-4799-9faf-70637ba62b6a}*SharedItemsImports = 4
-		Remora.Forms\Remora.Forms\Remora.Forms.projitems*{d7327ab9-7623-4bee-b483-b6c73fc26790}*SharedItemsImports = 4
-		Remora.Forms\Remora.Forms\Remora.Forms.projitems*{f8183dda-1013-4895-b2a1-ace78379e6a1}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM

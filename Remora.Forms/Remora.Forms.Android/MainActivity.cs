@@ -19,8 +19,15 @@ namespace Remora.Forms.Droid
 
 			base.OnCreate (bundle);
 
+			// Initialization for Azure Mobile Apps
+			Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
+			// This MobileServiceClient has been configured to communicate with the Azure Mobile App and
+			// Azure Gateway using the application url. You're all set to start working with your Mobile App!
+			Microsoft.WindowsAzure.MobileServices.MobileServiceClient Remora_azureClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+			"http://remora-azure.azurewebsites.net");
+
 			global::Xamarin.Forms.Forms.Init (this, bundle);
-			LoadApplication (new Remora.Forms.App ());
+			LoadApplication (new Remora_azure.Shared.App ());
 		}
 	}
 }

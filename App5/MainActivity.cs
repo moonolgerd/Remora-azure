@@ -2,7 +2,6 @@
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
 using Gcm.Client;
-using Remora_azure.Shared;
 
 namespace App5
 {
@@ -28,7 +27,7 @@ namespace App5
 			}
 		}
 
-		protected override async void OnCreate(Bundle bundle)
+		protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 			
@@ -41,9 +40,6 @@ namespace App5
 			GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 			SetContentView (Resource.Layout.Main);
-
-
-			var table = await CurrentClient.GetTable<ITodoItem>().ReadAsync();
 		}
 	}
 }
