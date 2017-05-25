@@ -25,7 +25,7 @@ namespace Remora_azure.Shared
 
 	class ListViewPage1ViewModel : INotifyPropertyChanged
     {
-		private MobileServiceClient _client = new MobileServiceClient("http://localhost:59991/");
+		private readonly MobileServiceClient _client = new MobileServiceClient("http://localhost:59991/");
 		public ObservableCollection<TodoItem> Items { get; }
         public ObservableCollection<Grouping<string, TodoItem>> ItemsGrouped { get; private set; }
 
@@ -41,7 +41,7 @@ namespace Remora_azure.Shared
 
         public ICommand RefreshDataCommand { get; }
 
-        async Task RefreshData()
+	    private async Task RefreshData()
         {
             IsBusy = true;
 			var data = await _client.GetTable<TodoItem>().ToListAsync();
@@ -59,14 +59,14 @@ namespace Remora_azure.Shared
 			IsBusy = false;
         }
 
-        bool busy;
+        bool _busy;
 	
 		public bool IsBusy
         {
-            get { return busy; }
-            set
+            get => _busy;
+			set
             {
-                busy = value;
+                _busy = value;
                 OnPropertyChanged();
                 ((Command)RefreshDataCommand).ChangeCanExecute();
             }
@@ -81,7 +81,7 @@ namespace Remora_azure.Shared
 
         public class Grouping<K, T> : ObservableCollection<T>
         {
-            public K Key { get; private set; }
+            public K Key { get; }
 
             public Grouping(K key, IEnumerable<T> items)
             {
