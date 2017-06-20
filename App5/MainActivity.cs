@@ -11,23 +11,11 @@ namespace App5
 		private static MainActivity instance = new MainActivity();
 		private MobileServiceClient _client;
 
-		public static MainActivity CurrentActivity
-		{
-			get
-			{
-				return instance;
-			}
-		}
+        public static MainActivity CurrentActivity => instance;
 
-		public MobileServiceClient CurrentClient
-		{
-			get
-			{
-				return _client;
-			}
-		}
+        public MobileServiceClient CurrentClient => _client;
 
-		protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
 		{
 			base.OnCreate(bundle);
 			

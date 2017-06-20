@@ -1,8 +1,6 @@
 using Android.App;
 using Android.Content;
 using Gcm.Client;
-using Microsoft.WindowsAzure.MobileServices;
-using Newtonsoft.Json.Linq;
 
 [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -13,12 +11,12 @@ using Newtonsoft.Json.Linq;
 
 namespace App5
 {
-	[BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-	[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE },
+    [BroadcastReceiver(Permission = Constants.PERMISSION_GCM_INTENTS)]
+	[IntentFilter(new string[] { Constants.INTENT_FROM_GCM_MESSAGE },
 		Categories = new string[] { "@PACKAGE_NAME@" })]
-	[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
+	[IntentFilter(new string[] { Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK },
 		Categories = new string[] { "@PACKAGE_NAME@" })]
-	[IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
+	[IntentFilter(new string[] { Constants.INTENT_FROM_GCM_LIBRARY_RETRY },
 	Categories = new string[] { "@PACKAGE_NAME@" })]
 	class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
 	{
