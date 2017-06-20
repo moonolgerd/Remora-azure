@@ -24,26 +24,30 @@ namespace Remora_azure.Shared
 	}
 
 	class ListViewPage1ViewModel : INotifyPropertyChanged
-    {
-		private readonly MobileServiceClient _client = new MobileServiceClient("http://localhost:59991/");
+	{
+		private readonly MobileServiceClient _client = new MobileServiceClient("http://169.254.80.80:59991/");
 		public ObservableCollection<TodoItem> Items { get; }
-        public ObservableCollection<Grouping<string, TodoItem>> ItemsGrouped { get; private set; }
+		public ObservableCollection<Grouping<string, TodoItem>> ItemsGrouped
+		{
+			get;
+			private set;
+		}
 
-        public ListViewPage1ViewModel()
-        {
+		public ListViewPage1ViewModel()
+		{
 			Items = new ObservableCollection<TodoItem>();
-			
-            
+			ItemsGrouped = new ObservableCollection<Grouping<string, TodoItem>>();
 
-            RefreshDataCommand = new Command(
-                async () => await RefreshData());
-        }
 
-        public ICommand RefreshDataCommand { get; }
+			RefreshDataCommand = new Command(
+				async () => await RefreshData());
+		}
 
-	    private async Task RefreshData()
-        {
-            IsBusy = true;
+		public ICommand RefreshDataCommand { get; }
+
+		private async Task RefreshData()
+		{
+			IsBusy = true;
 			var data = await _client.GetTable<TodoItem>().ToListAsync();
 			foreach (var item in data)
 			{
@@ -53,42 +57,45 @@ namespace Remora_azure.Shared
 						 orderby item.Text
 						 group item by item.Text[0].ToString() into itemGroup
 						 select new Grouping<string, TodoItem>(itemGroup.Key, itemGroup);
-
-			ItemsGrouped = new ObservableCollection<Grouping<string, TodoItem>>(sorted);
+			
+			foreach (var item in sorted)
+			{
+				ItemsGrouped.Add(item);
+			}
 
 			IsBusy = false;
-        }
+		}
 
-        bool _busy;
-	
+		bool _busy;
+
 		public bool IsBusy
-        {
-            get => _busy;
+		{
+			get => _busy;
 			set
-            {
-                _busy = value;
-                OnPropertyChanged();
-                ((Command)RefreshDataCommand).ChangeCanExecute();
-            }
-        }
+			{
+				_busy = value;
+				OnPropertyChanged();
+				((Command)RefreshDataCommand).ChangeCanExecute();
+			}
+		}
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		public event PropertyChangedEventHandler PropertyChanged;
+		void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
 
 
-        public class Grouping<K, T> : ObservableCollection<T>
-        {
-            public K Key { get; }
+		public class Grouping<K, T> : ObservableCollection<T>
+		{
+			public K Key { get; }
 
-            public Grouping(K key, IEnumerable<T> items)
-            {
-                Key = key;
-                foreach (var item in items)
-                    this.Items.Add(item);
-            }
-        }
-    }
+			public Grouping(K key, IEnumerable<T> items)
+			{
+				Key = key;
+				foreach (var item in items)
+					this.Items.Add(item);
+			}
+		}
+	}
 }
