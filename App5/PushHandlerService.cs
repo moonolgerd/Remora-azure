@@ -37,8 +37,7 @@ namespace App5
 				MainActivity.CurrentActivity.RunOnUiThread(
 					async () => await push.RegisterAsync(registrationId, templates));
 
-				System.Diagnostics.Debug.WriteLine(
-					string.Format("Push Installation Id", push.InstallationId.ToString()));
+				System.Diagnostics.Debug.WriteLine($"Push Installation Id: {push.InstallationId}");
 			}
 			catch (Exception ex)
 			{
@@ -88,8 +87,7 @@ namespace App5
 
 		protected override void OnError(Context context, string errorId)
 		{
-			System.Diagnostics.Debug.WriteLine(
-				string.Format("Error occurred in the notification: {0}.", errorId));
+			System.Diagnostics.Debug.WriteLine($"Error occurred in the notification: {errorId}.");
 		}
 	}
 }
