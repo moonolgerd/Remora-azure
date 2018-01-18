@@ -26,7 +26,6 @@ namespace App5
 		
 		public static void UpdateIdValues()
 		{
-			global::Gcm.Client.Resource.String.library_name = global::App5.Resource.String.library_name;
 			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_in_right = global::App5.Resource.Animation.slide_in_right;
 			global::Xamarin.Auth._MobileServices.Resource.Animation.slide_out_left = global::App5.Resource.Animation.slide_out_left;
 			global::Xamarin.Auth._MobileServices.Resource.Drawable.ic_arrow_back = global::App5.Resource.Drawable.ic_arrow_back;
@@ -93,11 +92,11 @@ namespace App5
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int expandableListView1 = 2131099649;
+			// aapt resource value: 0x7f070001
+			public const int expandableListView1 = 2131165185;
 			
-			// aapt resource value: 0x7f060000
-			public const int webview = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int webview = 2131165184;
 			
 			static Id()
 			{
@@ -105,6 +104,22 @@ namespace App5
 			}
 			
 			private Id()
+			{
+			}
+		}
+		
+		public partial class Integer
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int google_play_services_version = 2131034112;
+			
+			static Integer()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Integer()
 			{
 			}
 		}
@@ -131,17 +146,17 @@ namespace App5
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int ApplicationName = 2131034113;
+			// aapt resource value: 0x7f060002
+			public const int ApplicationName = 2131099650;
 			
-			// aapt resource value: 0x7f050000
-			public const int Hello = 2131034112;
+			// aapt resource value: 0x7f060001
+			public const int Hello = 2131099649;
 			
-			// aapt resource value: 0x7f050003
-			public const int library_name = 2131034115;
+			// aapt resource value: 0x7f060000
+			public const int common_google_play_services_unknown_issue = 2131099648;
 			
-			// aapt resource value: 0x7f050002
-			public const int title_activity_webview = 2131034114;
+			// aapt resource value: 0x7f060003
+			public const int title_activity_webview = 2131099651;
 			
 			static String()
 			{

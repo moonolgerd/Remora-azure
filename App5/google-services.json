@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "877781133075",
+    "firebase_url": "https://remora-146814.firebaseio.com",
+    "project_id": "remora-146814",
+    "storage_bucket": "remora-146814.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877781133075:android:8c9ba64bf27744f4",
+        "android_client_info": {
+          "package_name": "com.remora.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "877781133075-59hmijql62jtttecak80pfknpv6fr1b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsjFtpFjt9iS-0gZWt0QNazxOoIlxbR7s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

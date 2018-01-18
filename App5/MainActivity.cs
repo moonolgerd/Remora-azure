@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.OS;
 using Microsoft.WindowsAzure.MobileServices;
-using Gcm.Client;
 
 namespace App5
 {
@@ -23,9 +22,6 @@ namespace App5
 			_client = new MobileServiceClient("http://remora-azure.azurewebsites.net");
 
 			instance = this;
-			GcmClient.CheckDevice(this);
-			GcmClient.CheckManifest(this);
-			GcmClient.Register(this, ToDoBroadcastReceiver.senderIDs);
 
 			SetContentView (Resource.Layout.Main);
 		}
